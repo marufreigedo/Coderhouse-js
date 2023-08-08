@@ -1,54 +1,32 @@
-const pizzas = [
-  { nombre: "Mozzarella", precio: 9 },
-  { nombre: "Napolitana", precio: 10 },
-  { nombre: "Fugazzeta", precio: 11 }
-];
+document.addEventListener("DOMContentLoaded", function() {
+  // Cargar datos desde JSON y almacenarlos en localStorage
+  fetch('pizzas.json')
+    .then(response => response.json())
+    .then(data => {
+      localStorage.setItem('pizzas', JSON.stringify(data));
+      const pizzaSelect = document.getElementById('pizza-seleccion');
+      data.forEach(pizza => {
+        const option = document.createElement('option');
+        option.value = pizza.nombre;
+        option.textContent = pizza.nombre;
+        pizzaSelect.appendChild(option);
+      });
+    })
+    .catch(error => console.error(error));
 
-function buscarPizzaPorNombre(nombrePizza) {
-  const pizzaEncontrada = pizzas.find(pizza => pizza.nombre === nombrePizza);
-  return pizzaEncontrada;
-}
+  // Asociar evento al botón de pedido
+  const orderButton = document.getElementById('order-button');
+  orderButton.addEventListener('click', () => {
+    const selectedPizzaNombre = document.getElementById('pizza-seleccion').value;
+    const pizzas = JSON.parse(localStorage.getItem('pizzas'));
+    const selectedPizza = pizzas.find(pizza => pizza.nombre === selectedPizzaNombre);
 
-function tomarPedido() {
-  let total = 0;
-
-  console.log("Bienvenido a nuestra pizzería");
-  console.log("Opciones de pizza:");
-
-  for (let i = 0; i < pizzas.length; i++) {
-    console.log(`${i + 1}. ${pizzas[i].nombre} - $${pizzas[i].precio}`);
-  }
-
-  const opcion = prompt("Ingrese el número de la pizza que desea ordenar (0 para salir) o ingrese el nombre de una pizza para buscarla:");
-
-  if (opcion === "0") {
-    console.log("Gracias por visitarnos. ¡Hasta luego!");
-    return;
-  }
-
-  let pizzaElegida;
-  if (!isNaN(opcion)) {
-    const I = parseInt(opcion) - 1;
-
-    if (isNaN(I) || I < 0 || I >= pizzas.length) {
-      console.log("Opción inválida. Por favor, elija una opción válida.");
-      return;
+    if (selectedPizza) {
+      const resultArea = document.getElementById('result-area');
+      resultArea.textContent = `Ha elegido una pizza de ${selectedPizza.nombre}. El precio total es: $${selectedPizza.precio}`;
     }
+  });
+});
 
-    pizzaElegida = pizzas[I];
-  } else {
-    pizzaElegida = buscarPizzaPorNombre(opcion);
-    if (!pizzaElegida) {
-      console.log("No se encontró ninguna pizza con ese nombre. Por favor, elija una opción válida.");
-      return;
-    }
-  }
 
-  total = pizzaElegida.precio;
-  console.log(`Ha elegido una pizza de ${pizzaElegida.nombre}`);
-  console.log("El precio total es: $" + total);
 
-  tomarPedido();
-}
-
-tomarPedido();
