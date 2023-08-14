@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
       resultArea.textContent = `Ha elegido una pizza de ${selectedPizza.nombre}. El precio total es: $${selectedPizza.precio}`;
     }
   });
+  
 });
 
 
