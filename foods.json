@@ -1,0 +1,8 @@
+[
+  { "nombre": "Mozzarella Pizza", "precio": 9 },
+  { "nombre": "Napolitana Pizza", "precio": 10 },
+  { "nombre": "Fugazzeta Pizza", "precio": 11 },
+  { "nombre": "Coca-Cola", "precio": 15},
+  { "nombre": "Agua Mineral", "precio": 5 },
+  { "nombre": "Jugo de Naranja", "precio": 7 }
+]
