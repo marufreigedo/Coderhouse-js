@@ -1,8 +1,21 @@
 [
-  { "nombre": "Mozzarella Pizza", "precio": 9 },
-  { "nombre": "Napolitana Pizza", "precio": 10 },
-  { "nombre": "Fugazzeta Pizza", "precio": 11 },
-  { "nombre": "Coca-Cola", "precio": 15},
-  { "nombre": "Agua Mineral", "precio": 5 },
-  { "nombre": "Jugo de Naranja", "precio": 7 }
+  { "nombre": "Fugazzeta", "precio": 5000 },
+  { "nombre": "Mozzarella", "precio": 4500 },
+  { "nombre": "Napolitana", "precio": 5500 },
+  { "nombre": "Cebolla", "precio": 4500 },
+  { "nombre": "Champiñones", "precio": 5700 },
+  { "nombre": "Pepperoni", "precio": 5800 },
+  { "nombre": "Cuatro quesos", "precio": 6000 },
+  { "nombre": "Vegetariana", "precio": 4500 },
+  { "nombre": "Pizza de champiñones", "precio": 6000 },
+  { "nombre": "Provolone", "precio": 6000 },
+  { "nombre": "Agua", "precio": 700 },
+  { "nombre": "Agua con Gas", "precio": 700 },
+  { "nombre": "Coca cola", "precio": 850 },
+  { "nombre": "Sprite", "precio": 850 },
+  { "nombre": "Fanta", "precio": 850 },
+  { "nombre": "Seven Up", "precio": 850 },
+  { "nombre": "Stella Artois", "precio": 3000 },
+  { "nombre": "Brahma", "precio": 2000 },
+  { "nombre": "Miller", "precio": 2500 }
 ]
